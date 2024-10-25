@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import { Poppins } from "next/font/google";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -12,6 +13,8 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
 export const metadata = {
   title: "Create Next App",
@@ -28,10 +31,13 @@ export default function RootLayout({ children }) {
             <li><Link href="/gallery">Gallery</Link></li>
             <li><Link href="/about">About</Link></li>
             <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/posts">Posts</Link></li>
+            <li><Link href="/another">Another</Link></li>
           </ul>
         </h3>
         {children}
-        <footer className="mt-48"><p>This is Footer Option</p></footer>
+        <footer className="mt-48"><p className={poppins.className}>This is Footer Option</p></footer>
       </body>
     </html>
   );
